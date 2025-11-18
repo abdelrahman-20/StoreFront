@@ -13,6 +13,22 @@
     </style>
   </head>
   <body>
+    {% if name %}
     <h1>Hello {{name}}</h1>
+    {% else %}
+    <h1>Hello World !!</h1>
+    {% endif %}
+    
+    {% comment %} {% for order in results %}
+    <ul>
+      <li>{{ order.id }} - {{ order.customer.first_name }}</li>
+    </ul>
+    {% endfor %} 
+
+    <h4>Number of Products: {{ results.count }}</h4>
+    <h4>Minimum Price: {{ results.min_price }}</h4>
+    {% endcomment %}
+
+    <h4>{{results}}</h4>
   </body>
 </html>
