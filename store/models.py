@@ -11,6 +11,7 @@ class Collection(models.Model):
     featured_product = models.ForeignKey(
         "Product", on_delete=models.SET_NULL, null=True, related_name="+"
     )
+    # featured_product_id = models.IntegerField(null=True, blank=True)
 
 
 class Product(models.Model):
@@ -62,6 +63,7 @@ class Order(models.Model):
 
 
 class OrderItem(models.Model):
+    # id = models.AutoField(primary_key=True)  # explicit
     order = models.ForeignKey(Order, on_delete=models.PROTECT)
     product = models.ForeignKey(Product, on_delete=models.PROTECT)
     quantity = models.PositiveIntegerField()
