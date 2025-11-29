@@ -21,17 +21,17 @@ from decimal import Decimal
 @transaction.atomic()
 def say_hello(request):
 
-    order = Order()
-    order.customer = Customer(pk=1)
-    order.payment_status = Order.PAYMENT_PENDING
-    order.save()
+    # order = Order()
+    # order.customer = Customer(pk=1)
+    # order.payment_status = Order.PAYMENT_PENDING
+    # order.save()
 
-    item = OrderItem()
-    item.order = Order.objects.get(pk=2)
-    item.product = Product.objects.get(pk=1)
-    item.quantity = 10
-    item.unit_price = Decimal(10)
-    item.save()
+    # item = OrderItem()
+    # item.order = Order.objects.get(pk=2)
+    # item.product = Product.objects.get(pk=1)
+    # item.quantity = 10
+    # item.unit_price = Decimal(10)
+    # item.save()
 
     return render(request, "hello.html", {"name": "Abdelrahman"})
 

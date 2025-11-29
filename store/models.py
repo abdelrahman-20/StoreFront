@@ -13,6 +13,12 @@ class Collection(models.Model):
     )
     # featured_product_id = models.IntegerField(null=True, blank=True)
 
+    def __str__(self) -> str:
+        return self.title
+
+    class Meta:
+        ordering = ["title"]
+
 
 class Product(models.Model):
     title = models.CharField(max_length=255)
@@ -25,6 +31,9 @@ class Product(models.Model):
     # Foreign Keys
     collection = models.ForeignKey(Collection, on_delete=models.CASCADE)
     promotions = models.ManyToManyField(Promotion, related_name="products")
+
+    def __str__(self) -> str:
+        return self.title
 
 
 class Customer(models.Model):
@@ -46,6 +55,12 @@ class Customer(models.Model):
         max_length=1, choices=MEMBERSHIP_CHOICES, default=MEMBERSHIP_BRONZE
     )
 
+    def __str__(self) -> str:
+        return f"{self.first_name} {self.last_name}"
+
+    class Meta:
+        ordering = ["first_name", "last_name"]
+
 
 class Order(models.Model):
     PAYMENT_COMPLETE = "C"
@@ -63,7 +78,6 @@ class Order(models.Model):
 
 
 class OrderItem(models.Model):
-    # id = models.AutoField(primary_key=True)  # explicit
     order = models.ForeignKey(Order, on_delete=models.PROTECT)
     product = models.ForeignKey(Product, on_delete=models.PROTECT)
     quantity = models.PositiveIntegerField()
