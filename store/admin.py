@@ -72,3 +72,4 @@ class CustomerAdmin(admin.ModelAdmin):
 class OrderAdmin(admin.ModelAdmin):
     list_display = ["id", "customer", "placed_at"]
     list_per_page = 50
+
