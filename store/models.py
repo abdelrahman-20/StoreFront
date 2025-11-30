@@ -76,6 +76,9 @@ class Order(models.Model):
     payment_status = models.CharField(max_length=20, choices=PAYMENT_CHOICES)
     customer = models.ForeignKey(Customer, on_delete=models.PROTECT)
 
+    class Meta:
+        ordering = ["id"]
+
 
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, on_delete=models.PROTECT)

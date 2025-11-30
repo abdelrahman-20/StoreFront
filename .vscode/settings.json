@@ -1,3 +1,4 @@
 {
-  "cSpell.words": ["Abdelrahman", "orderitem"]
+  "cSpell.words": ["Abdelrahman", "orderitem"],
+  "python.REPL.enableREPLSmartSend": false
 }

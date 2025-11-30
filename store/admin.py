@@ -28,3 +28,9 @@ class CustomerAdmin(admin.ModelAdmin):
     list_display = ["first_name", "last_name", "membership"]
     list_editable = ["membership"]
     list_per_page = 50
+
+
+@admin.register(models.Order)
+class OrderAdmin(admin.ModelAdmin):
+    list_display = ["id", "customer", "placed_at"]
+    list_per_page = 50
