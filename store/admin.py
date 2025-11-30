@@ -49,8 +49,10 @@ class ProductAdmin(admin.ModelAdmin):
 
 @admin.register(models.Customer)
 class CustomerAdmin(admin.ModelAdmin):
-    list_display = ["first_name", "last_name", "orders"]
+    list_display = ["first_name", "last_name", "membership", "orders"]
+    list_editable = ["membership"]
     list_per_page = 50
+    search_fields = ["first_name__istartswith", "last_name__i startswith"]
 
     @admin.display(ordering="orders")
     def orders(self, customer):
